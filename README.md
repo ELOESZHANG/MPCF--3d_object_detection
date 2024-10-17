@@ -57,8 +57,7 @@ Our model utilizes less than 7 GB during training and ~3 GB during inference. Th
     conda activate MPCF_env
     
     pip install torch==2.0.0+cu117 torchvision==0.15.1+cu117 torchaudio==2.0.1+cu117 -f https://download.pytorch.org/whl/torch_stable.html
-    (or:  pip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchaudio==0.9.1 -f https://download.pytorch.org/whl/torch_stable.html
-)
+    (or:  pip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchaudio==0.9.1 -f https://download.pytorch.org/whl/torch_stable.html)
     pip install -r requirements.txt
     pip install spconv-cu116 (or spconv-cu111)
 
