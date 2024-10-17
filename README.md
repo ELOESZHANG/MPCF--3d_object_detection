@@ -1,10 +1,20 @@
-# MPCF--3d_object_detection
+# MPCF: Multi-Phase Consolidated Fusion for Multi-Modal 3D Object Detection with Pseudo Point Cloud
 We propose a multi-phase consolidated fusion (MPCF) framework, a multimodal network favoring uniform spatial distribution for 3D object detection.
-
-
-
+![](./tools/images/framework.png)
 
 This is the official implementation of [**MPCF**], built on [`SFD`](https://github.com/LittlePey/SFD) and [`OpenPCDet`](https://github.com/open-mmlab/OpenPCDet)
+
+### Model Zoo
+We release two models, which are based on LiDAR-only and multi-modal data respectively. We denoted the two models as TED-S and TED-M respectively.
+
+* All models are trained with 8 V100 GPUs and are available for download. 
+
+* The models are trained with train split (3712 samples) of KITTI dataset
+
+* The results are the 3D AP(R40) of Car on the *val* set of KITTI dataset.
+
+* These models are not suitable to directly report results on KITTI test set, please use slightly lower score threshold and train the models on all or 80% training data to achieve a desirable performance on KITTI test set.
+
 
 
 ### Installation
@@ -59,6 +69,12 @@ This is the official implementation of [**MPCF**], built on [`SFD`](https://gith
 
    You can find the training and testing commands in tools/GP_run.sh
 
+0. Creat kitti_pkl and GT  
+
+    ```
+    python -m pcdet.datasets.kitti.kitti_dataset_custom create_kitti_infos ../tools/cfgs/dataset_configs/kitti_dataset_custom.yaml
+    ```
+    
 1. Training.
 
     For single GPU
@@ -84,6 +100,8 @@ This is the official implementation of [**MPCF**], built on [`SFD`](https://gith
     python test.py --gpu_id 1 --workers 4 --cfg_file cfgs/kitti_models/mpcf_test.yaml --batch_size 1 \
      --ckpt ../output/kitti_models/mpcf/default/ckpt/checkpoint_epoch_57.pth #--save_to_file 
     ```
+
+    
 ## Acknowledgements
 We thank these great works and open-source repositories:
 [OpenPCDet](https://github.com/open-mmlab/OpenPCDet), [SFD](https://github.com/LittlePey/SFD), and [Voxel-RCNN](https://github.com/djiajunustc/Voxel-R-CNN).
