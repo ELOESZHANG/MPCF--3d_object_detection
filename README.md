@@ -13,13 +13,14 @@
 This is the official implementation of [**MPCF**], built on [`SFD`](https://github.com/LittlePey/SFD) and [`OpenPCDet`](https://github.com/open-mmlab/OpenPCDet) 
 
 
-### 🔥 Highlights
+
+## 🔥Highlights
 
 * **Strong performance**. MPCF achieves **SOTA** performance on kitti test set for single-use data. [`KITTI Benchmark`](https://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d)💪
 
 * **More friendly**. MPCF utilizes less than **7 GB** during training and  **~3 GB** during inference. (i.e., RTX 3090, RTX4090 are enough to train our MPCF). 😀
 
-\
+
 
 
 ### Model Zoo
