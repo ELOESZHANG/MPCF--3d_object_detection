@@ -13,10 +13,10 @@ We release the model based on KITTI Dataset.
 
 * As for KITTI test set, please use slightly score (~0.5) threshold and train the models on all training data to achieve a desirable performance.
 
-|                                             |Modality|GPU memory of training| Easy | Mod. | Hard  | download | 
+|                                             |Modality|GPU memory| Easy | Mod. | Hard  | download | 
 |---------------------------------------------|----------:|----------:|:-------:|:-------:|:-------:|:---------:|
-| [mpcf-val](tools/cfgs/kitti_models/mpcf.yaml)|LiDAR+RGB|~7 GB |~3 GB |95.97 |89.67| 86.89| [google]() / [baidu(p91t)]() | 
-| [mpcf-test](tools/cfgs/kitti_models/mpcf_can.yaml)|LiDAR+RGB |~7 GB|~3 GB | 92.46 |85.50 |80.69 | [google]() / [baidu(nkr5)]() |
+| [mpcf-val](tools/cfgs/kitti_models/mpcf.yaml)|LiDAR+RGB|~7GB(Train)/~3GB(val) |95.97 |89.67| 86.89| [google]() / [baidu(p91t)]() | 
+| [mpcf-test](tools/cfgs/kitti_models/mpcf_can.yaml)|LiDAR+RGB |~7GB(Train)/~3GB(val)| 92.46 |85.50 |80.69 | [google]() / [baidu(nkr5)]() |
 
 Our model utilizes less than 7 GB during training and ~3 GB during inference. This demonstrates that it is an extremely efficient model.
 
