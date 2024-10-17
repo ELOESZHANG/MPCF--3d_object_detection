@@ -4,7 +4,7 @@ We propose a multi-phase consolidated fusion (MPCF) framework, a multimodal netw
 
 
 
-This is the official implementation of [**MPCF**], built on [`SFD`]() and [`OpenPCDet`](https://github.com/open-mmlab/OpenPCDet)
+This is the official implementation of [**MPCF**], built on [`SFD`](https://github.com/LittlePey/SFD) and [`OpenPCDet`](https://github.com/open-mmlab/OpenPCDet)
 
 
 ### Installation
