@@ -1,11 +1,11 @@
 # MPCF: Multi-Phase Consolidated Fusion for Multi-Modal 3D Object Detection with Pseudo Point Cloud
-
+<div align="center">
 [Zhe Liu](https://happinesslz.github.io) <sup>1, </sup>,
 [Jinghua Hou](https://github.com/AlmoonYsl) <sup>1,✉* </sup>,
 <br>
 <sup>1</sup> UESTC
 <br>
-
+</div>
    We propose a multi-phase consolidated fusion (MPCF) framework, a multimodal network favoring uniform spatial distribution for 3D object detection.
 ![](./MPCF.png)
 
