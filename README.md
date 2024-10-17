@@ -84,3 +84,7 @@ This is the official implementation of [**MPCF**], built on [`SFD`](https://gith
     python test.py --gpu_id 1 --workers 4 --cfg_file cfgs/kitti_models/mpcf_test.yaml --batch_size 1 \
      --ckpt ../output/kitti_models/mpcf/default/ckpt/checkpoint_epoch_57.pth #--save_to_file 
     ```
+## Acknowledgements
+We thank these great works and open-source repositories:
+[OpenPCDet](https://github.com/open-mmlab/OpenPCDet), [SFD](https://github.com/LittlePey/SFD), and [Voxel-RCNN](https://github.com/djiajunustc/Voxel-R-CNN).
+
