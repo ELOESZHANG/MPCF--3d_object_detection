@@ -2,7 +2,7 @@
 We propose a multi-phase consolidated fusion (MPCF) framework, a multimodal network favoring uniform spatial distribution for 3D object detection.
 ![](./MPCF.png)
 
-This is the official implementation of [**MPCF**], built on [`SFD`](https://github.com/LittlePey/SFD) and [`OpenPCDet`](https://github.com/open-mmlab/OpenPCDet)
+This is the official implementation of [**MPCF**], built on [`SFD`](https://github.com/LittlePey/SFD) and [`OpenPCDet`](https://github.com/open-mmlab/OpenPCDet) 
 
 ### Model Zoo
 We release the model based on KITTI Dataset.
@@ -13,11 +13,12 @@ We release the model based on KITTI Dataset.
 
 * As for KITTI test set, please use slightly score (~0.5) threshold and train the models on all training data to achieve a desirable performance.
 
-|                                             |Modality|GPU memory of training| Easy | Mod. | Hard  | download | 
-|---------------------------------------------|----------:|----------:|:-------:|:-------:|:-------:|:---------:|
-| [mpcf-val](tools/cfgs/models/kitti/mpcf.yaml)|LiDAR+RGB|~7 GB |95.97 |89.67| 86.89| [google]() / [baidu(p91t)]() /  | 
-| [mpcf-test](tools/cfgs/models/kitti/mpcf_can.yaml)|LiDAR+RGB |~7 GB| 92.46 |85.50 |80.69 | [google]() / [baidu(nkr5)](https://pan.baidu.com/s/1FP80452dfM09YtE8DBaicQ) / 65M|
+|                                             |Modality|GPU memory of training|GPU memory of training |Easy | Mod. | Hard  | download | 
+|---------------------------------------------|----------:|----------:|：----------:|:-------:|:-------:|:-------:|:---------:|
+| [mpcf-val](tools/cfgs/kitti_models/mpcf.yaml)|LiDAR+RGB|~7 GB |~3 GB |95.97 |89.67| 86.89| [google]() / [baidu(p91t)]() | 
+| [mpcf-test](tools/cfgs/kitti_models/mpcf_can.yaml)|LiDAR+RGB |~7 GB|~3 GB | 92.46 |85.50 |80.69 | [google]() / [baidu(nkr5)]() |
 
+Our model utilizes less than 7 GB during training and ~3 GB during inference. This demonstrates that it is an extremely efficient model.
 
 ### Installation
 1.  Prepare for the running environment. 
@@ -26,7 +27,7 @@ We release the model based on KITTI Dataset.
 
 2. Prepare for the data.  
     
-    The dataset is follow SFD. Anyway, you should have your dataset as follows:
+    The dataset is follow [`SFD`](https://github.com/LittlePey/SFD). Anyway, you should have your dataset as follows:
 
     ```
     MPCF
