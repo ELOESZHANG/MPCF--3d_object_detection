@@ -6,6 +6,7 @@
 <sup>1</sup> UESTC
 <br>
 </div>
+
    We propose a multi-phase consolidated fusion (MPCF) framework, a multimodal network favoring uniform spatial distribution for 3D object detection.
 ![](./MPCF.png)
 
