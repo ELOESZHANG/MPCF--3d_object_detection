@@ -5,16 +5,18 @@ We propose a multi-phase consolidated fusion (MPCF) framework, a multimodal netw
 This is the official implementation of [**MPCF**], built on [`SFD`](https://github.com/LittlePey/SFD) and [`OpenPCDet`](https://github.com/open-mmlab/OpenPCDet)
 
 ### Model Zoo
-We release two models, which are based on LiDAR-only and multi-modal data respectively. We denoted the two models as TED-S and TED-M respectively.
+We release the model based on KITTI Dataset.
 
-* All models are trained with 8 V100 GPUs and are available for download. 
+* All models are trained with 1 RTX-3090 or 4 RTX-4090 GPUs and are available for download. 
 
-* The models are trained with train split (3712 samples) of KITTI dataset
+* As for KITTI validation set, the models are trained with train split (3712 samples).
 
-* The results are the 3D AP(R40) of Car on the *val* set of KITTI dataset.
+* As for KITTI test set, please use slightly score (~0.5) threshold and train the models on all training data to achieve a desirable performance.
 
-* These models are not suitable to directly report results on KITTI test set, please use slightly lower score threshold and train the models on all or 80% training data to achieve a desirable performance on KITTI test set.
-
+|                                             |Modality|GPU memory of training| Easy | Mod. | Hard  | download | 
+|---------------------------------------------|----------:|----------:|:-------:|:-------:|:-------:|:---------:|
+| [mpcf-val](tools/cfgs/models/kitti/mpcf.yaml)|LiDAR+RGB|~7 GB |95.97 |89.67| 86.89| [google]() / [baidu(p91t)]() /  | 
+| [mpcf-test](tools/cfgs/models/kitti/mpcf_can.yaml)|LiDAR+RGB |~7 GB| 92.46 |85.50 |80.69 | [google]() / [baidu(nkr5)](https://pan.baidu.com/s/1FP80452dfM09YtE8DBaicQ) / 65M|
 
 
 ### Installation
@@ -54,8 +56,10 @@ We release two models, which are based on LiDAR-only and multi-modal data respec
     conda activate MPCF_env
     
     pip install torch==2.0.0+cu117 torchvision==0.15.1+cu117 torchaudio==2.0.1+cu117 -f https://download.pytorch.org/whl/torch_stable.html
+    (or:  pip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchaudio==0.9.1 -f https://download.pytorch.org/whl/torch_stable.html![image](https://github.com/user-attachments/assets/30b3dade-d5c8-47f1-af42-9c436ee92d59)
+)
     pip install -r requirements.txt
-    pip install spconv-cu116
+    pip install spconv-cu116 (or spconv-cu102)
 
     cd MPCF
     python setup.py develop
@@ -75,12 +79,12 @@ We release two models, which are based on LiDAR-only and multi-modal data respec
     python -m pcdet.datasets.kitti.kitti_dataset_custom create_kitti_infos ../tools/cfgs/dataset_configs/kitti_dataset_custom.yaml
     ```
     
-1. Training.
+1. Training. (We recommend running on single GPU, and our optimal model was trained using just 1 GPU.)
 
-    For single GPU
+    For single GPU 
     ```
     cd tools
-    python train.py --gpu_id 0 --workers 0 --cfg_file cfgs/kitti_models/mpcf.yaml \
+    python train.py --gpu_id 0 --workers 1 --cfg_file cfgs/kitti_models/mpcf.yaml \
      --batch_size 1 --epochs 60 --max_ckpt_save_num 25 --fix_random_seed
     ```
     
@@ -90,7 +94,7 @@ We release two models, which are based on LiDAR-only and multi-modal data respec
     python -m torch.distributed.launch --nnodes 1 --nproc_per_node=4 --master_port 25511 train.py \
      --gpu_id 0,1,2,3 --launch 'pytorch' --workers 4 \
      --batch_size 4 --cfg_file cfgs/kitti_models/mpcf.yaml  --tcp_port 61000 \
-     --epochs 40 --max_ckpt_save_num 30 --fix_random_seed
+     --epochs 60 --max_ckpt_save_num 30 --fix_random_seed
     ```
 
 2. Evaluation.
