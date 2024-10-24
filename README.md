@@ -8,7 +8,7 @@
 <br>
 </div>
 
-   We propose a MPCF framework, a multimodal network for 3D object detection.
+   We present MPCF.
 ![](./MPCF.png)
 
 This is the official implementation of [**MPCF**], built on [`SFD`](https://github.com/LittlePey/SFD) and [`OpenPCDet`](https://github.com/open-mmlab/OpenPCDet) 
