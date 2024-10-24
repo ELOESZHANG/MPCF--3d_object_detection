@@ -1,4 +1,6 @@
-# M P C F
+<div align="center">
+#  M P C F
+</div>
 <div align="center">
 [Pan Gao](https://github.com/GP-Bone) <sup>1, </sup>,
 [Ping Zhang](https://github.com/ELOESZHANG) <sup>1,✉* </sup>,
@@ -7,7 +9,7 @@
 <br>
 </div>
 
-   We propose a multi-phase consolidated fusion (MPCF) framework, a multimodal network favoring uniform spatial distribution for 3D object detection.
+   We propose a MPCF framework, a multimodal network for 3D object detection.
 ![](./MPCF.png)
 
 This is the official implementation of [**MPCF**], built on [`SFD`](https://github.com/LittlePey/SFD) and [`OpenPCDet`](https://github.com/open-mmlab/OpenPCDet) 
