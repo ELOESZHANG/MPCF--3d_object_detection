@@ -8,7 +8,7 @@
 <br>
 </div>
 
-   We present MPCF.
+   We present M_P_C_F for point cloud and pseduo point cloud. 
 ![](./MPCF.png)
 
 This is the official implementation of [**MPCF**], built on [`SFD`](https://github.com/LittlePey/SFD) and [`OpenPCDet`](https://github.com/open-mmlab/OpenPCDet) 
