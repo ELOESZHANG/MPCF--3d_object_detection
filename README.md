@@ -1,6 +1,5 @@
-<div align="center">
-**M_P_C_F**
-</div>
+# M_P_C_F
+
 <div align="center">
 [Pan Gao](https://github.com/GP-Bone) <sup>1, </sup>,
 [Ping Zhang](https://github.com/ELOESZHANG) <sup>1,✉* </sup>,
