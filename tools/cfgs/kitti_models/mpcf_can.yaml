@@ -4,11 +4,7 @@ DATA_CONFIG:
     _BASE_CONFIG_: cfgs/dataset_configs/kitti_dataset.yaml
     DATASET: 'KittiDatasetCustom'
 #    DATA_PATH: '../data/kitti_pseudo'
-#    DATA_PATH: '/media/gaopan/kitti_pseudo'
-#    DATA_PATH: '/media/gaopan/kitti_pseudo_82devide'
-#    DATA_PATH: '/media/gaopan/kitti_pseudo_trainall'
-#    DATA_PATH: '/media/gaopan/kitti_pseudo_trainvaltest'
-    DATA_PATH: '/media/gaopan/kitti_pseudo_trainvaltest_2'
+    DATA_PATH: '../data/kitti_pseudo_trainvaltest_2'
     USE_VAN: True          #'Car' is True
     DATA_SPLIT: {
         'train': train,
@@ -36,31 +32,6 @@ DATA_CONFIG:
               DATABASE_WITH_FAKELIDAR: False
               REMOVE_EXTRA_WIDTH: [0.0, 0.0, -0.2]
               LIMIT_WHOLE_SCENE: False
-
-#            - NAME: gt_sampling_DA
-#              USE_ROAD_PLANE: True
-#              DB_INFO_PATH:
-#                  - kitti_dbinfos_train_custom_seguv.pkl
-#              PREPARE: {
-#                  filter_by_min_points: ['Car:5', 'Pedestrian:5', 'Cyclist:5'],
-#                  filter_by_difficulty: [ -1 ],
-#              }
-#
-#              SAMPLE_GROUPS: ['Car:8', 'Pedestrian:10', 'Cyclist:10']
-#
-#              MIN_SAMPLING_DIS: 0
-#              MAX_SAMPLING_DIS: 20
-#              OCCLUSION_NOISE: 0.2
-#              OCCLUSION_OFFSET: 2.
-#              SAMPLING_METHOD: 'LiDAR-aware'
-#              VERT_RES: 0.006
-#              HOR_RES: 0.003
-#
-#              NUM_POINT_FEATURES: 4
-#              NUM_POINT_FEATURES_PSEUDO: 9
-#              DATABASE_WITH_FAKELIDAR: False
-#              REMOVE_EXTRA_WIDTH: [ 0.0, 0.0, -0.2 ]
-#              LIMIT_WHOLE_SCENE: False
 
             - NAME: random_local_noise_custom
               LOCAL_ROT_RANGE: [-0.78539816, 0.78539816]
@@ -200,20 +171,16 @@ MODEL:
         CLASS_AGNOSTIC: True
 
         ATTENTION_FC: [256]
-#######################################小   128+128 =84.30   256+256 =84.49  128+256=84.28 128+512=84.46  256+512=83.70  64+640=84.12
-        SHARED_FC: [512,512]  #gai [256,256] yuan [512,512]
-        CLS_FC: [512,512] #gai [256,256] yuan [512,512]
-        REG_FC: [512,512] #gai [256,256] yuan [512,512]
+#######################################
+        SHARED_FC: [256,256]  
+        CLS_FC: [256,256] 
+        REG_FC: [256,256] 
         DP_RATIO: 0.3
-######################################大
-        SHARED_FC_PSEUDO: [512,512] #gai [128,128] yuan [256,256]
-        CLS_FC_PSEUDO: [512,512] #gai [128,128] yuan [256,256]
-        REG_FC_PSEUDO: [512,512] #gai [128,128] yuan [256,256]
+######################################
+        SHARED_FC_PSEUDO: [256,256] 
+        CLS_FC_PSEUDO: [256,256] 
+        REG_FC_PSEUDO: [256,256] 
 ####################################
-
-#        SHARED_FC_VALID: [256, 256]
-#        CLS_FC_VALID: [256, 256]
-#        REG_FC_VALID: [256, 256]
 
         AUXILIARY_CODE_SIZE: 7
 
@@ -221,7 +188,7 @@ MODEL:
             TRAIN:
                 NMS_TYPE: nms_gpu
                 MULTI_CLASSES_NMS: False
-                NMS_PRE_MAXSIZE: 9000   #gai 4000 yuan 9000
+                NMS_PRE_MAXSIZE: 9000 
                 NMS_POST_MAXSIZE: 512
                 NMS_THRESH: 0.8
             TEST:
@@ -229,9 +196,9 @@ MODEL:
                 MULTI_CLASSES_NMS: False
                 USE_FAST_NMS: True
                 SCORE_THRESH: 0.0
-                NMS_PRE_MAXSIZE: 2048 #gai 2000 yuan 2048
-                NMS_POST_MAXSIZE: 100  #gai 50 yuan 100
-                NMS_THRESH: 0.7   #gai 0.75  yuan 0.7
+                NMS_PRE_MAXSIZE: 2048 
+                NMS_POST_MAXSIZE: 100 
+                NMS_THRESH: 0.7
 
         ROI_GRID_POOL:
             FEATURES_SOURCE: ['x_conv3', 'x_conv4']
@@ -266,7 +233,7 @@ MODEL:
 
         TARGET_CONFIG:
             BOX_CODER: ResidualCoder
-            ROI_PER_IMAGE: 128  #gai 160  yuan 128
+            ROI_PER_IMAGE: 128 
             FG_RATIO: 0.5
 
             SAMPLE_ROI_BY_EACH_CLASS: True
@@ -277,13 +244,12 @@ MODEL:
             CLS_BG_THRESH_LO: 0.1
             HARD_BG_RATIO: 0.8
 
-            REG_FG_THRESH: 0.55  #gai 0.5 yuan 0.55
+            REG_FG_THRESH: 0.55 
 
         LOSS_CONFIG:
             CLS_LOSS: BinaryCrossEntropy
             REG_LOSS: coiou  #defeault giou
             REG_LOSS_PSEUDO: smooth-l1
-#            REG_LOSS_VALID: smooth-l1
             CORNER_LOSS_REGULARIZATION: True
             GRID_3D_IOU_LOSS: False
             LOSS_WEIGHTS: {
@@ -298,26 +264,10 @@ MODEL:
                 'rcnn_reg_weight': 0.5,
                 'code_weights': [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
             }
-#            LOSS_WEIGHTS_VALID: {
-#                'rcnn_cls_weight': 0,
-#                'rcnn_reg_weight': 0,
-#                'code_weights': [0, 0, 0, 0, 0, 0, 0]
-#            }
-#            LOSS_WEIGHTS_PSEUDO: {
-#                'rcnn_cls_weight': 1.0,  #0.5
-#                'rcnn_reg_weight': 1.0,  #0.5
-#                'code_weights': [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]  #[1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
-#            }
-#            LOSS_WEIGHTS_VALID: {
-#                'rcnn_cls_weight': 0,   #0.5
-#                'rcnn_reg_weight': 0,   #0.5
-#                'code_weights': [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]  #[1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
-#            }
-
 
     POST_PROCESSING:
         RECALL_THRESH_LIST: [0.3, 0.5, 0.7]
-        SCORE_THRESH: 0.5    #gai 0.4 yuan 0.3
+        SCORE_THRESH: 0.5    #0.3
         OUTPUT_RAW_SCORE: False
 
         EVAL_METRIC: kitti
@@ -334,7 +284,7 @@ OPTIMIZATION:
     NUM_EPOCHS: 60
 
     OPTIMIZER: adam_onecycle
-    LR: 0.002   #defeault 0.001
+    LR: 0.002   #defeault 0.001 for one GPU; 0.002 for 4 GPUs.
     WEIGHT_DECAY: 0.01
     MOMENTUM: 0.9
 
