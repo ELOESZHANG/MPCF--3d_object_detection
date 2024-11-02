@@ -26,7 +26,7 @@ DATA_CONFIG:
                  filter_by_difficulty: [-1],
               }
 
-              SAMPLE_GROUPS: ['Car:8']   #['Car:8', 'Pedestrian:10', 'Cyclist:10']
+              SAMPLE_GROUPS: ['Car:15']   #['Car:15', 'Pedestrian:10', 'Cyclist:10']
               NUM_POINT_FEATURES: 4
               NUM_POINT_FEATURES_PSEUDO: 9
               DATABASE_WITH_FAKELIDAR: False
