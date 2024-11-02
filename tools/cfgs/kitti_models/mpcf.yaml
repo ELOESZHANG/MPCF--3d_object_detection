@@ -177,10 +177,6 @@ MODEL:
         CLS_FC_PSEUDO: [256, 256]
         REG_FC_PSEUDO: [256, 256]
 
-        SHARED_FC_VALID: [256, 256]
-        CLS_FC_VALID: [256, 256]
-        REG_FC_VALID: [256, 256]
-
         AUXILIARY_CODE_SIZE: 7
 
         NMS_CONFIG:
