@@ -75,10 +75,10 @@ We release the model based on KITTI Dataset.
     conda create -n MPCF_env python=3.8
     conda activate MPCF_env
     
-    pip install torch==2.0.0+cu117 torchvision==0.15.1+cu117 torchaudio==2.0.1+cu117 -f https://download.pytorch.org/whl/torch_stable.html
-    (or:  pip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchaudio==0.9.1 -f https://download.pytorch.org/whl/torch_stable.html)
+     pip install torch==1.10.1+cu113 torchvision==0.11.2+cu113 torchaudio==0.10.1+cu113 -f https://download.pytorch.org/whl/torch_stable.html
+    (or: pip install torch==2.0.0+cu117 torchvision==0.15.1+cu117 torchaudio==2.0.1+cu117 -f https://download.pytorch.org/whl/torch_stable.html )
     pip install -r requirements.txt
-    pip install spconv-cu116 (or spconv-cu111)
+    pip install spconv-cu113 (or spconv-cu116)
 
     cd MPCF
     python setup.py develop
@@ -103,7 +103,7 @@ We release the model based on KITTI Dataset.
     For single GPU 
     ```
     cd tools
-    python train.py --gpu_id 0 --workers 1 --cfg_file cfgs/kitti_models/mpcf.yaml \
+    python train.py --gpu_id 0 --workers 0 --cfg_file cfgs/kitti_models/mpcf.yaml \
      --batch_size 1 --epochs 60 --max_ckpt_save_num 25 --fix_random_seed
     ```
     
