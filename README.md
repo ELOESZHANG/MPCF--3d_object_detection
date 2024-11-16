@@ -1,7 +1,7 @@
 
 <div align="center">
    
-### < width="4%" style="margin: 0 auto;"  [MPCF] >
+### [__MPCF__]
    
 [Pan Gao](https://github.com/GP-Bone) <sup>1, </sup>,
 [Ping Zhang](https://github.com/ELOESZHANG) <sup>1,✉* </sup>,
