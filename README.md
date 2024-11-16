@@ -35,7 +35,7 @@ We release the model based on KITTI Dataset.
 
 |                                             |Modality|GPU memory| Easy | Mod. | Hard  | download | 
 |---------------------------------------------|----------:|----------:|:-------:|:-------:|:-------:|:---------:|
-| [mpcf-val](tools/cfgs/kitti_models/mpcf.yaml)|LiDAR+RGB|~7GB (train)/~3 GB(val) |95.97 |89.67| 86.89| [google](https://drive.google.com/file/d/1AT2sthr0YhI5ZurtwLghpp60baefC1C_/view?usp=sharing) / [baidu]() | 
+| [mpcf-val](tools/cfgs/kitti_models/mpcf.yaml)|LiDAR+RGB|~7GB (train)/~3 GB(val) |95.97 |89.67| 86.89| [google](https://drive.google.com/file/d/1AT2sthr0YhI5ZurtwLghpp60baefC1C_/view?usp=sharing) / [baidu](https://pan.baidu.com/s/1A_A4OY8Kq3xsPLIj9yDNBA?pwd=1234) | 
 | [mpcf-test](tools/cfgs/kitti_models/mpcf_can.yaml)|LiDAR+RGB |~7GB (train)/~3 GB(val)| 92.46 |85.50 |80.69 | [`KITTI Benchmark`](https://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d) |
 
 
