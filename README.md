@@ -1,7 +1,7 @@
 
 <div align="center">
    
-### [__MPCF__]
+### [__MPCF: Multi-Phase Consolidated Fusion for Multi-Modal 3D Object Detection with Pseudo Point Cloud__]
    
 [Pan Gao](https://pangao-1.github.io/) <sup>1, </sup>,
 [Ping Zhang](https://github.com/ELOESZHANG) <sup>1,✉* </sup>,
