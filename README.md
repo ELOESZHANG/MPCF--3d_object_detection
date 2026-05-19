@@ -12,6 +12,8 @@
 </div>
 
    We present [`MPCF`](https://doi.org/10.1109/TCSVT.2026.3665922) (MPCF: Multi-Phase Consolidated Fusion for Multi-Modal 3D Object Detection with Pseudo Point Cloud) for point cloud and pseduo point cloud. [`Paper`](https://ieeexplore.ieee.org/abstract/document/11398352) in IEEE TCSVT. You can click the PDF button to download the full text.
+
+   
 ![](./MPCF.png) 
 
 
