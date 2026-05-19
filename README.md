@@ -11,10 +11,10 @@
 </div>
 
    We present [`MPCF`](https://doi.org/10.1109/TCSVT.2026.3665922) (MPCF: Multi-Phase Consolidated Fusion for Multi-Modal 3D Object Detection with Pseudo Point Cloud) for point cloud and pseduo point cloud. 
-![](./MPCF.png) 
-[`Paper`](https://ieeexplore.ieee.org/abstract/document/11398352).
+![](./MPCF.png) [`Paper`](https://ieeexplore.ieee.org/abstract/document/11398352).
 
-This is the official implementation of [**MPCF**], built on [`SFD`](https://github.com/LittlePey/SFD) and [`OpenPCDet`](https://github.com/open-mmlab/OpenPCDet) 
+
+This is the official implementation of [**MPCF**],[`Paper`](https://ieeexplore.ieee.org/abstract/document/11398352), built on [`SFD`](https://github.com/LittlePey/SFD) and [`OpenPCDet`](https://github.com/open-mmlab/OpenPCDet) 
 
 
 
